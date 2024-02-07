@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1"
+    />
+    <meta name="author" content="Theme Industry" />
+    <!-- description -->
+    <meta name="description" content="boltex" />
+    <!-- keywords -->
+    <meta name="keywords" content="" />
+    <title>assign</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+
+    <!-- <link rel="stylesheet" href="css/bootstrap3.min.css"> -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/static/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/static/css/slick.css" />
+    <link rel="stylesheet" href="/static/css/cubeportfolio.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+    <style>
+      @import "compass/css3";
+      body {
+        background: #ffffff;
+        padding: 0 200px;
+        margin-top: 75px;
+      }
+
+      table {
+        font-family: "Arial";
+        margin: 25px auto;
+        margin-top: 55px;
+        border-collapse: collapse;
+        border: 1px solid #eee;
+        border-bottom: 2px solid #00cccc;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1),
+          0px 10px 20px rgba(0, 0, 0, 0.05),
+          0px 20px 20px rgba(0, 0, 0, 0.05),
+          0px 30px 20px rgba(0, 0, 0, 0.05);
+        tr {
+          &:hover {
+            background: #f4f4f4;
+
+            td {
+              color: #555;
+            }
+          }
+        }
+        th,
+        td {
+          color: #999;
+          border: 1px solid #eee;
+          padding: 12px 35px;
+          border-collapse: collapse;
+        }
+        th {
+          background: #00cccc;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 12px;
+          &.last {
+            border-right: none;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg fixed-top activate-menu navbar-light bg-light"
+    >
+      <a class="navbar-brand" href="#">ADMIN</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <a class="nav-link" href="/Admin/">Home</a>
+          </li>
+          <li>
+            <a class="nav-link" hreff="/viewemp/">View Employee</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/report_view/">View Report</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/addproj/">Add Project</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="proj">Choose a Project:</label>
+
+      <select name="pname">
+        {% for i in p %}
+        <option value="{{i.project_name}}">{{i.project_name}}</option>
+        {% endfor %}
+      </select>
+      <label>Start time</label>
+      <input type="text" name="stime" placeholder="YYYY-MM-DD" />
+      <label>End time</label>
+      <input type="text" name="etime" placeholder="YYYY-MM-DD" />
+
+      <input type="submit" value="submit" />
+    </form>
+    {% if z %}
+    <table>
+      <thead>
+        <th>Project Name</th>
+        <th>Start time</th>
+        <th>End time</th>
+      </thead>
+      <tbody>
+        {% for e in z %}
+        <tr>
+          <td>{{e.project_id}}</td>
+          <td>{{e.start_time}}</td>
+          <td>{{e.end_time}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+       * {
+        margin: 0px;
+        padding: 0 10px;
+        
+      }
+      body {
+        padding: 80px;
+      }
+      .wrapper{
+        max-width: 500px;
+        width: 100%;
+        background: #ffffff;
+        margin: 50px auto;
+        box-shadow: 2px 2px 4px #10807a;
+        padding: 30px;
+        text-align: center; 
+        
+      } 
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update</title>
+  </head>
+  <body>
+    
+    
+    
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="wrapper">
+        <div class="form"></div>
+      <!-- <label>Project_id</label>
+      <input type="number" name="proid" /><br /><br />
+      <label>Employee_id</label>
+      <input type="number" name="empid" /><br /><br />
+      <label>Start_time</label>
+      <input type="number" name="stime" /><br /><br />
+      <label>End_time</label>
+      <input type="number" name="etime" /><br /><br /> -->
+      <label>Status</label>
+      <input type="text" name="status" value="{{i.status}}" /><br /><br />
+      <input type="submit" value="submit" />
+    </form>
+  </body>
+</html>

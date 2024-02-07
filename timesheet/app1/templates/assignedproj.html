@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %}
+      <label>Project_id</label>
+      <input type="number" name="proid" />
+      <label>Employee_id</label>
+      <input type="number" name="empid" />
+      <label>Start_time</label>
+      <input type="number" name="stime" />
+      <label>End_time</label>
+      <input type="number" name="etime" />
+      <label>Status</label>
+      <input type="text" name="status" />
+    </form>
+  </body>
+</html>

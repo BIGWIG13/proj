@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1"
+    />
+    <meta name="author" content="Theme Industry" />
+    <!-- description -->
+    <meta name="description" content="boltex" />
+    <!-- keywords -->
+    <meta name="keywords" content="" />
+    <title>View employee</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+
+    <!-- <link rel="stylesheet" href="css/bootstrap3.min.css"> -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/static/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/static/css/slick.css" />
+    <link rel="stylesheet" href="/static/css/cubeportfolio.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg fixed-top activate-menu navbar-light bg-light"
+    >
+      <a class="navbar-brand" href="#">Admin</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <a class="nav-link" href="/Admin/">Home</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/viewemp/">View Employee</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/report_view/">View Report</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/addproj/">Add Project</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/logout/">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <style>
+      @import "compass/css3";
+
+      table {
+        font-family: "Arial";
+        margin: 25px auto;
+        margin-top: 55px;
+        border-collapse: collapse;
+        border: 1px solid #eee;
+        border-bottom: 2px solid #00cccc;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1),
+          0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05),
+          0px 30px 20px rgba(0, 0, 0, 0.05);
+        tr {
+          &:hover {
+            background: #f4f4f4;
+
+            td {
+              color: #555;
+            }
+          }
+        }
+        th,
+        td {
+          color: #999;
+          border: 1px solid #eee;
+          padding: 12px 35px;
+          border-collapse: collapse;
+        }
+        th {
+          background: #00cccc;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 12px;
+          &.last {
+            border-right: none;
+          }
+        }
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    {% if y %}
+    <form method="post">
+      {% csrf_token %}
+      <label>Firstname</label>
+      <input type="text" name="fname" /><br /><br />
+      <label>Lastname</label>
+      <input type="text" name="lname" /><br /><br />
+      <label>Designation</label>
+      <input type="text" name="dsgn" /><br /><br />
+      <label>Salary</label>
+      <input type="number" name="salary" /><br /><br />
+      <label>Department</label>
+      <input type="text" name="dptmt" /><br /><br />
+      <label>Place</label>
+      <input type="text" name="place" /><br /><br />
+      <label>Phone</label>
+      <input type="number" name="number" /><br /><br />
+      <label>Email</label>
+      <input type="text" name="email" /><br /><br />
+      <label>Username</label>
+      <input type="text" name="uname" /><br /><br />
+      <label>Password</label>
+      <input type="password" name="pswd" /><br /><br />
+      <input type="submit" value="submit" />
+    </form>
+    {% elif z %}
+    <table>
+      <thead>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Department</th>
+        <th>Place</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </thead>
+      <tbody>
+        {% for i in z %}
+        <tr>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.designation}}</td>
+          <td>{{i.salary}}</td>
+          <td>{{i.department}}</td>
+          <td>{{i.place}}</td>
+          <td>{{i.phone}}</td>
+          <td>{{i.email}}</td>
+          <td><a href="/Assign/{{i.id}}">Assign </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </body>
+</html>

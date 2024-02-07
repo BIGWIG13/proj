@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="proj">Choose a Project:</label>
+      <input type="text" value="{{pro_name}}" />
+      <select name="pname">
+        {% for i in p %}
+        <option value="{{i.id}}">{{i.project_name}}</option>
+        {% endfor %}
+      </select>
+      <label>Start time</label>
+      <input type="text" name="stime" value="{{z.start_time}}" />
+      <label>End time</label>
+      <input type="text" name="etime" value="{{z.end_time}}" />
+      <input type="submit" value="submit" />
+    </form>
+  </body>
+</html>

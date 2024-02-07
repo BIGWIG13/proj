@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>*{
+  
+        margin: 10px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        
+      }
+      body{
+        
+        padding: 50px;
+        
+      }
+      .wrapper{
+        max-width: 500px;
+        width: 100%;
+        background: #ffffff;
+        margin: 50px auto;
+        box-shadow: 2px 2px 4px #10807a;
+        padding: 30px;
+        text-align: center;  
+      }
+      </style>
+  </head>
+  <body>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="wrapper">
+        <div class="form"></div>
+      <div class="inputfield">
+        <label>Project_name</label>
+        <input type="text" name="pname" value="{{e.project_name}}" />
+      </div>
+      <div class="inputfield">
+        <label>Topic</label>
+        <input type="text" name="topic" value="{{e.topic}}" />
+      </div>
+      <div class="inputfield">
+        <label>Comments</label>
+        <input type="text" name="cmnts" value="{{e.comments}}" />
+      </div>
+      <div class="inputfield">
+        <input type="submit" value="Submit" class="btn">
+      </div>
+    </form>
+  </body>
+</html>
